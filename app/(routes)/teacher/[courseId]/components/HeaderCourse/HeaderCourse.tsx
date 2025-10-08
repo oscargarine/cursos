@@ -45,7 +45,7 @@ export function HeaderCourse( props: HeaderCourseProps ) {
           <MoveLeft />
           Volver a todos los cursos.
         </Button>
-        
+
       <div className="gap-2 flex items-center">
           {isPublished ? (
             <Button variant="outline" onClick={() => onPublished(false)} disabled={isLoading}>
