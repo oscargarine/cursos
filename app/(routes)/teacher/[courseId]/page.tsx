@@ -2,7 +2,7 @@ import { auth } from "@clerk/nextjs/server"
 
 import prisma from "@/lib/prisma"
 
-import { CourseForm, CourseImage, CoursePrice, HeaderCourse } from "./components"
+import { ChaptersBlock, CourseForm, CourseImage, CoursePrice, HeaderCourse } from "./components"
 
 export default async function CoursePage( { params }: { params : Promise<{ courseId : string}>}) {
 
@@ -19,7 +19,11 @@ export default async function CoursePage( { params }: { params : Promise<{ cours
       userId: userId,
     },
     include: {
-      chapters: true,
+      chapters: {
+        orderBy: {
+          position: "asc",
+        },
+      },
     },
   })
 
@@ -40,7 +44,7 @@ export default async function CoursePage( { params }: { params : Promise<{ cours
         <CoursePrice idCourse={course.id} priceCourse={course.price} />
       </div>
 
-      <p>Course Chapters</p>
+      <ChaptersBlock idCourse={course.id} chapters={course.chapters} />
 
     </div>
   )

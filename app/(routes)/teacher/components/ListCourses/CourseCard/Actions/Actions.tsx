@@ -27,7 +27,7 @@ export function Actions(props: ActionsProps) {
   const router = useRouter()
 
   const onEdit = () => {
-    router.push(`/teacher/${courseId}/edit`)
+    router.push(`/teacher/${courseId}`)
   }
 
   const deleteCourse = () => {

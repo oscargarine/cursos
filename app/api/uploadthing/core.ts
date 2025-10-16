@@ -1,4 +1,5 @@
 import { createUploadthing, type FileRouter } from "uploadthing/next";
+import { file } from "zod";
 
 const f = createUploadthing();
 
@@ -21,6 +22,11 @@ export const ourFileRouter = {
 
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
       return { uploadedBy: metadata };
+    }),
+    chapterVideo: f({
+      video: {maxFileCount: 1, maxFileSize: "512GB"},
+    }).onUploadComplete(({ file }) => {
+      return {url: file.url}
     }),
 } satisfies FileRouter;
 
