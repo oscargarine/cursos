@@ -1,9 +1,18 @@
-import { Button } from "@/components/ui/button";
+import { getHomeCourses } from "@/actions/getHomeCourses";
+import { ExploreCourses } from "./components"
+import { ListCourses } from "@/components/Shared";
 
-export default function Home() {
+
+export default async function Home() {
+
+  const listCourses = await getHomeCourses()
+
+
   return (
     <div>
-      <Button>Hola TarreDev</Button>
+      <ExploreCourses />
+
+      <ListCourses title="Cursos más populares" courses={ListCourses} />
     </div>
   );
 }
