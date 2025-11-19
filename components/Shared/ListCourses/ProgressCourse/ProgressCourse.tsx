@@ -28,9 +28,6 @@ export function ProgressCourse(props: ProgressCourseProps) {
     return <p className="text-xs mt-2">Not signed in</p>
   }
 
-
-  console.log(progressCourse)
-
   return (
     <div className="mt-4">
       {totalChapters > 0 && progressCourse > 0 ? (
