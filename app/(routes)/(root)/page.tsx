@@ -7,12 +7,14 @@ export default async function Home() {
 
   const listCourses = await getHomeCourses()
 
+  console.log(listCourses)
+
 
   return (
     <div>
       <ExploreCourses />
 
-      <ListCourses title="Cursos más populares" courses={ListCourses} />
+      <ListCourses title="Cursos más populares" courses={listCourses} />
     </div>
   );
 }
