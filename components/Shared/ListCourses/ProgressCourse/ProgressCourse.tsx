@@ -1,9 +1,13 @@
 "use client"
 
 import { useUser } from "@clerk/nextjs";
+
 import { formatPrice } from "@/lib/formatPrice"
+
 import { Progress } from "@/components/ui/progress"
+
 import { getUserProgressByCourse } from "@/actions/getUserProgressByCourse";
+
 import { ProgressCourseProps } from "./ProgressCourse.types";
 import { useEffect, useState } from "react";
 
@@ -22,6 +26,7 @@ export function ProgressCourse(props: ProgressCourseProps) {
       }
     }
     fetchProgress()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.id])
 
   if (!user) {
